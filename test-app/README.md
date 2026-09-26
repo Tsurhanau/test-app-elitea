@@ -59,8 +59,33 @@ test-app/
 ├── src/
 │   ├── colors.js         # ANSI color and text-style helpers
 │   ├── input.js          # Readline prompts, selection, confirmation, and pause helpers
-│   └── quiz.js            # Quiz state, scoring, shuffling, progress, and results
-├── index.js               # Application entry point and main quiz loop
-├── package.json           # Project metadata, scripts, and Node.js requirement
-└── README.md              # Project documentation
+│   └── quiz.js           # Quiz state, scoring, shuffling, progress, and results
+├── index.js              # Application entry point and main quiz loop
+├── package.json          # Project metadata, scripts, and Node.js requirement
+└── README.md             # Project documentation
 ```
+
+## Configuration and Content
+
+Quiz content is stored in `data/questions.json`. Each category provides a display name and a list of questions. Each question contains a prompt, an `options` array, a zero-based `answer` index, and an optional explanation. To add or revise questions, edit that JSON file while preserving this structure.
+
+## Testing
+
+The package defines a test command:
+
+```bash
+npm test
+```
+
+At present, the repository does not include test files, so the command is primarily a placeholder for future Node.js tests.
+
+## Development Notes
+
+- The package uses ES modules (`"type": "module"`), so imports use `import`/`export` syntax.
+- No external packages are required; the application uses Node.js built-in modules only.
+- Questions are loaded relative to `index.js`, allowing the application to be launched from the project directory without relying on the current working directory.
+- The `__MACOSX` metadata files and `.DS_Store` files are archive/operating-system artifacts and are not needed to run the application.
+
+## License
+
+This project is released under the [MIT License](https://opensource.org/licenses/MIT), as declared in `package.json`.
